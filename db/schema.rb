@@ -15,11 +15,12 @@ ActiveRecord::Schema.define(version: 6) do
   create_table "album_joiners", force: :cascade do |t|
     t.integer "album_id"
     t.integer "artist_id"
+    t.index ["album_id"], name: "index_album_joiners_on_album_id"
+    t.index ["artist_id"], name: "index_album_joiners_on_artist_id"
   end
 
   create_table "albums", force: :cascade do |t|
     t.string "name"
-    t.integer "album_joiner_id"
     t.string "genre"
   end
 
@@ -30,15 +31,19 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "song_id"
-    t.integer "user_id"
     t.integer "rating"
     t.string "phrase"
+    t.integer "user_id"
+    t.integer "song_id"
+    t.index ["song_id"], name: "index_reviews_on_song_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.string "genre"
+    t.integer "album_id"
+    t.index ["album_id"], name: "index_songs_on_album_id"
   end
 
   create_table "users", force: :cascade do |t|

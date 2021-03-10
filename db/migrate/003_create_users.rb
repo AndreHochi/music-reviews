@@ -6,6 +6,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
             t.string :password
             t.string :avatar_url
             t.datetime :birthdate
+            #t.has_many :reviews
+            #t.has_many :songs, :through => :reviews
+
         end
     end
 
