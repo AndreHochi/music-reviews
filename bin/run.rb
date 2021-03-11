@@ -71,5 +71,8 @@ aj4 = AlbumJoiner.create({album_id: al4.id, artist_id: ar4.id})
 aj5 = AlbumJoiner.create({album_id: al5.id, artist_id: ar5.id})
 aj6 = AlbumJoiner.create({album_id: al6.id, artist_id: ar1.id})
 
+main_user = User.login
+main_user.options
 
-binding.pry
+
+#binding.pry
